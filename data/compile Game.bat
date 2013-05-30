@@ -1,0 +1,5 @@
+@ECHO OFF
+javac postconverted/Game.java
+PAUSE
+java postconverted/Game postconverted.ai5a4523e3f33e705587d0fc4e98eb09ba postconverted.aibc30e61d544f92e760711d3ac0b0d428 postconverted.ai4ed63f717ccd9ba9129ba50a99fd13ff postconverted.aiee4b16d8fc242aa7f9abb355e4a82ff6
+PAUSE
