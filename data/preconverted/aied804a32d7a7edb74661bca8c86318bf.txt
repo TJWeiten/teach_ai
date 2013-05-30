@@ -1,3 +1,0 @@
-// Welcome to the AI Development Platform, TJ!
-// Please read the documentation above for instructions on using the program!
-

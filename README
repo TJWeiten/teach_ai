@@ -1,1 +1,33 @@
-SORRY, NOTHING HERE YET!
+PREREQUISITES
+-----------------------------
+PHP
+MySQL
+A server that can execute 'java' and 'javac' commands
+
+INSTALLATION
+-----------------------------
+To install the AI development platform, upload these files to a web server that fulfills the requirements set forth above.
+Go to /core/database/connect.php and edit in your MySQL database credentials. Then import the provided install.sql file to the database you're using.
+
+NOTES
+-----------------------------
+The system requires 4 working bots in order to test user's code, and will most likely crash spectacularly if you try to run it with less than 4 users having their Bot_Working tag set to '1'. 
+It is recommended you install 4 "dumbots" by creating 4 unique users and saving/compiling the following code:
+
+	public double rateFirstCard(int card) {  
+		return 100 * Math.random();  
+	}
+			
+	public double rateCard(int card) {
+		return 100 * Math.random();   
+	}
+		
+	public double rateCardPass(int card) { 
+		return 100 * Math.random();
+	}
+	
+After that, when the testing system is run it should always be able to find at least four working bots.
+
+TO-DO
+-----------------------------
+There are a number of things that are uncompleted within the system, but I'll add these later.
