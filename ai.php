@@ -7,7 +7,7 @@ include 'includes/overall/header.php';
 <h1>AI Development</h1>
 <?php
 $usernamehash = md5($user_data['username']); 
-$file = 'C:\Web\htdocs\data\errors\\' . $usernamehash . '.txt' ;
+$file = $_SERVER['DOCUMENT_ROOT']. "/data/errors//" . $usernamehash . ".txt";
 if(file_exists($file)) {
 	if(filesize( $file ) != 0)
 	{

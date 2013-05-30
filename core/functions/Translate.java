@@ -7,11 +7,13 @@ public class Translate {
 	public static void main(String[] args) throws IOException {
 	
 		String usernameMD5 = args[0];
+		String directoryPath = args[1];
 		String filename = "ai" + usernameMD5;
 		String currentLine;
 		
-		File fileIn  = new File("C:/Web/htdocs/data/preconverted/" + filename + ".txt");
-        File fileOut = new File("C:/Web/htdocs/data/postconverted/" + filename + ".java");
+		// PLEASE CHANGE THESE FILE PATHS!
+		File fileIn  = new File(directoryPath + "/data/preconverted/" + filename + ".txt");
+        File fileOut = new File(directoryPath + "/data/postconverted/" + filename + ".java");
 
         BufferedReader in = new BufferedReader(new FileReader(fileIn));
         BufferedWriter out = new BufferedWriter(new FileWriter(fileOut));
@@ -33,10 +35,7 @@ public class Translate {
 	
 	// TODO : TRANSLATION CODE IN HERE
 	private static String translate(String line) {
-	
-		// Code for translating String -> Int
-		return line + "\n";
-	
+		return line + "\n";	
 	}
 
 }

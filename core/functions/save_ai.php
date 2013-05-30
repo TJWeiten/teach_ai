@@ -10,14 +10,14 @@ if(isset($_POST['data'])) {
 	$usernamehash = md5($user_data['username']);
 	
 	# Save their updated AI file based on the MD5 hash of their username
-	$file = 'file://' . 'C:\Web\htdocs\data\preconverted\ai' . $usernamehash . '.txt' ;
+	$file = $_SERVER['DOCUMENT_ROOT'] . '/data/preconverted/ai' . $usernamehash . '.txt' ;
 	$fp = fopen($file, "w");
 	$data = $_POST['data'];
 	fwrite($fp, $data);
 	fclose($fp);
 	
 	# Translate our pseduolanguage to Java code
-	exec("java Translate " . $usernamehash, $translate_output);
+	exec("java Translate " . $usernamehash . " \"" . $_SERVER['DOCUMENT_ROOT'] . "\"", $translate_output);
 }
 	  
 ?>

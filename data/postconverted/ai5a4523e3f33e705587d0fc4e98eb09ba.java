@@ -16,7 +16,7 @@ public double rateCard(int card) {
 }
 	
 public double rateCardPass(int card) { 
-    return 100 * Math.random(); 
+    return 100 * Math.random();
 }
 
 }

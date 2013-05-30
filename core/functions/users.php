@@ -1,4 +1,5 @@
 <?php
+
 # Checks if a user exists and returns true or false
 function user_exists($username) {
 	$username = sanitize($username);
@@ -80,10 +81,25 @@ function register_user($register_data) {
 	
 	# Create preconverted AI file with default welcome message based on an MD5 hash of their username
 	$usernamehash = md5($register_data['username']);
-	$file = 'C:\Web\htdocs\data\preconverted\ai' . $usernamehash . '.txt' ;
+	$file = $directory_path . "data\preconverted\ai" . $usernamehash . ".txt";
 	$fp = fopen($file, "w");
 	$msg = "// Welcome to the AI Development Platform, " . $register_data['first_name'] . "!\n// Please read the documentation above for instructions on using the program!\n\n";
 	fwrite($fp, $msg);
+	fclose($fp);
+}
+
+# Read the user's AI file based on the MD5 hash of their username
+function ai_read() {
+	# Get session id and relevant user information
+	$session_user_id = $_SESSION['user_id'];
+	$user_data = user_data($session_user_id, 'user_id', 'username');
+	$usernamehash = md5($user_data['username']);
+	$file = $_SERVER['DOCUMENT_ROOT'] . "/data/preconverted/ai" . $usernamehash . ".txt";
+	$fp = fopen($file, "r");
+	while(!feof($fp)) {
+		$data = fgets($fp, filesize($file));
+		echo $data;
+	}
 	fclose($fp);
 }
 
